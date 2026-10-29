@@ -1,0 +1,9 @@
+{
+  "total_rows": 200000,
+  "clean_rows": 191893,
+  "train_rows": 153514,
+  "test_rows": 38379,
+  "mae_usd": 1.694,
+  "rmse_usd": 3.419,
+  "r2": 0.8735
+}
