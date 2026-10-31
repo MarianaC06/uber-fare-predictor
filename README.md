@@ -3,7 +3,7 @@
 Aplicación académica para estimar tarifas históricas de viajes de Uber en Nueva York. **No calcula tarifas reales actuales.**
 
 ## Dataset
-Archivo `uber.csv` proporcionado por el estudiante, con 200,000 registros y variables `fare_amount`, `pickup_datetime`, coordenadas de origen/destino y `passenger_count`. Se excluyen filas con valores faltantes, coordenadas fuera de la región, tarifas no plausibles y distancias extremas. El CSV original **no se incluye en el repositorio** por tamaño; se conserva la referencia al archivo original de Kaggle y se reconstruye el modelo mediante `train.py`.
+Archivo `uber.csv` con 200,000 registros y variables `fare_amount`, `pickup_datetime`, coordenadas de origen/destino y `passenger_count`. Se excluyen filas con valores faltantes, coordenadas fuera de la región, tarifas no plausibles y distancias extremas. El CSV original **no se incluye en el repositorio** por tamaño; se conserva la referencia al archivo original de Kaggle y se reconstruye el modelo mediante `train.py`.
 
 ## Ejecutar localmente
 
@@ -26,8 +26,8 @@ Visitar http://localhost:8080 y documentación de API http://localhost:8080/docs
 El modelo ya entrenado se entrega en `model/uber_model.joblib`.
 
 ```bash
-docker build -t uber-fare-predictor:1.0 .
-docker run --rm -p 8080:8080 uber-fare-predictor:1.0
+docker build -t uber-fare-predictor:1.1 .
+docker run --rm -p 8080:8080 uber-fare-predictor:1.1
 curl http://localhost:8080/health
 ```
 
@@ -42,19 +42,6 @@ O bien `docker compose up --build`.
 ```
 
 Respuesta: `estimated_fare_usd`, `distance_km`, `note`. Datos inválidos devuelven HTTP 422. `GET /health` informa disponibilidad.
-
-## Publicar en GitHub
-
-```bash
-git init
-git add .
-git commit -m "Proyecto Uber Fare Predictor"
-git branch -M main
-git remote add origin https://github.com/TU_USUARIO/uber-fare-predictor.git
-git push -u origin main
-```
-
-Crear primero un repositorio vacío con ese nombre en GitHub. Nunca subir credenciales.
 
 ## Despliegue
 
